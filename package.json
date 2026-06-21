@@ -1,0 +1,107 @@
+{
+  "name": "nestjs-weighted-rate-limiter",
+  "version": "1.0.0",
+  "description": "Distributed, business-aware weighted rate limiting for NestJS applications",
+  "keywords": [
+    "nestjs",
+    "rate-limiter",
+    "rate-limiting",
+    "weighted-rate-limiter",
+    "redis",
+    "token-bucket",
+    "distributed-rate-limiter",
+    "throttle",
+    "throttler",
+    "guard",
+    "nestjs-guard",
+    "cost-based",
+    "business-aware",
+    "api-gateway",
+    "microservices",
+    "ioredis"
+  ],
+  "author": {
+    "name": "exec-unit",
+    "email": "exec.unit.git@gmail.com",
+    "url": "https://github.com/exec-unit"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exec-unit/nestjs-weighted-rate-limiter"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "build": "tsup && tsc --emitDeclarationOnly -p tsconfig.build.json",
+    "build:watch": "tsup --watch",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typecheck:build": "tsc --noEmit -p tsconfig.build.json",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "test": "vitest run test/unit",
+    "test:watch": "vitest test/unit",
+    "test:integration": "vitest run test/integration",
+    "test:e2e": "vitest run test/e2e",
+    "test:all": "vitest run",
+    "test:coverage": "vitest run --coverage test/unit",
+    "prepublishOnly": "pnpm run build && pnpm run typecheck:build && pnpm run lint"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0 || ^11.0.0",
+    "@nestjs/core": "^10.0.0 || ^11.0.0",
+    "ioredis": "^5.0.0",
+    "reflect-metadata": "^0.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@eslint/js": "^10.0.1",
+    "@nestjs/cli": "^11.0.23",
+    "@nestjs/common": "^11.1.27",
+    "@nestjs/core": "^11.1.27",
+    "@nestjs/platform-express": "^11.1.27",
+    "@nestjs/testing": "^11.1.27",
+    "@swc/core": "^1.15.43",
+    "@testcontainers/redis": "^12.0.4",
+    "@types/node": "^26.1.0",
+    "@vitest/coverage-v8": "^4.1.9",
+    "eslint": "^10.6.0",
+    "husky": "^9.1.7",
+    "ioredis": "^5.11.1",
+    "lint-staged": "^17.2.0",
+    "prettier": "^3.9.4",
+    "reflect-metadata": "^0.2.2",
+    "testcontainers": "^12.0.4",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
+    "unplugin-swc": "^1.5.9",
+    "vitest": "^4.1.9"
+  },
+  "devEngines": {
+    "node": ">=18",
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.9.0",
+      "onFail": "download"
+    }
+  }
+}
