@@ -1,0 +1,48 @@
+{
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonExports": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+
+    // Required for NestJS DI — reflect-metadata parameter types
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    // ES2022 covers Node.js 18+ — minimum required by NestJS v10/v11
+    "target": "ES2022",
+    "lib": ["ES2022"],
+
+    "outDir": "./dist",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // Strict mode — all checks enabled, no escape hatches
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Keep JSDoc in output — it's the public API documentation consumers see in their IDE
+    "removeComments": false,
+
+    // tsup's DTS builder internally injects baseUrl (deprecated in TS6), this silences it
+    "ignoreDeprecations": "6.0",
+
+    "skipLibCheck": true
+  }
+}
